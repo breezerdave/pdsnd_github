@@ -18,5 +18,10 @@ chicago.csv
 washington.csv  
 new_york_city.csv  
 
+### Libraries and modules used
+pandas  
+numpy  
+time  
+
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+I'd like to thank Udacity for teaching me python and for providing feedback on my mistakes!

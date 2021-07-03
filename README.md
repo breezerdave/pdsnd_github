@@ -8,8 +8,15 @@ This README file was created on July 2, 2021
 ### Description
 This project is an interactive program that displays bikeshare statistics for Chicago, Washington or New York City. The user can choose to filter the data by month, day or not at all. After the user chooses their filter, the program will display statistics on the most frequent times of use, popular stations, trip durations, and bikeshare users. Following these statistics, the user is asked if they would like to view raw data (five lines at a time), which they can stop at any time.
 
+The main file needed to run the program is the bikeshare.py file. The CSV's (which are not on github) are also required to run the program.
+
+This is the first program I've made with python and I hope you enjoy it!
+
 ### Files used
-Include the files used
+bikeshare.py  
+chicago.csv   
+washington.csv  
+new_york_city.csv  
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.

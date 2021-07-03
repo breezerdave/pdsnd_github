@@ -13,14 +13,8 @@ days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday',
 
 
 def get_filters():
-    """
-    Asks user to specify a city, month, and day to analyze.
+    """Asks user to specify a city, month, and day to analyze."""
 
-    Returns:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
-    """
     print('\nHello! Let\'s explore some US bikeshare data!\n')
     time.sleep(1.5)
 
@@ -57,16 +51,8 @@ def get_filters():
 
 
 def load_data(city, month, day):
-    """
-    Loads data for the specified city and filters by month and day if applicable.
+    """Loads data for the specified city and filters by month and day if applicable."""
 
-    Args:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
-    Returns:
-        df - Pandas DataFrame containing city data filtered by month and day
-    """
     df = pd.read_csv(CITY_DATA[city])
 
     df['Start Time'] = pd.to_datetime(df['Start Time'])
@@ -93,17 +79,17 @@ def time_stats(df):
     start_time = time.time()
     time.sleep(3)
 
-    print('The most common month is: {}'.format(months[df['month'].mode().iloc[0] - 1].title()))
+    print('The most common month is: ', (months[df['month'].mode().iloc[0] - 1].title())
     month_counts = df['month'].value_counts()
     print('Total counts: ', month_counts.iloc[0])
     time.sleep(1.5)
 
-    print('\nThe most common day of the week is: {}'.format(df['day_of_week'].mode().iloc[0]))
+    print('\nThe most common day of the week is: ', df['day_of_week'].mode().iloc[0])
     time.sleep(1.5)
     print('Total counts: ', df['day_of_week'].value_counts().iloc[0])
     time.sleep(1.5)
 
-    print('\nThe most common start hour is: {}'.format(df['hour'].mode()[0]))
+    print('\nThe most common start hour is: ', df['hour'].mode()[0])
     time.sleep(1.5)
     print('Total counts: ', df['hour'].value_counts().iloc[0])
     time.sleep(1.5)
@@ -119,18 +105,18 @@ def station_stats(df):
     start_time = time.time()
     time.sleep(1.5)
 
-    print("The most commonly used start station: {}".format(df['Start Station'].mode().iloc[0]))
+    print("The most commonly used start station: ", df['Start Station'].mode().iloc[0])
     time.sleep(0.5)
     print('Total counts: ', df['Start Station'].value_counts().iloc[0])
     time.sleep(1.5)
 
-    print("\nThe most commonly used end station: {}".format(df['End Station'].mode().iloc[0]))
+    print("\nThe most commonly used end station: ", df['End Station'].mode().iloc[0])
     time.sleep(0.5)
     print('Total counts: ', df['End Station'].value_counts().iloc[0])
     time.sleep(1.5)
 
     groups = df.groupby(['Start Station', 'End Station']).size().sort_values(ascending=False)
-    print("\nThe most frequent combination of start and end station: " + groups.index[0][0] + ' and', groups.index[0][1])
+    print("\nThe most frequent combination of start and end station: {} and {}".format(groups.index[0][0], groups.index[0][1]))
     time.sleep(1.5)
 
     print('Total combinations: ', groups.iloc[0])
